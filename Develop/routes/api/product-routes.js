@@ -101,7 +101,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Category.destroy({ where: { id: req.params.id } })
+  Product.destroy({ where: { id: req.params.id } })
     .then((productData) => {
       res.json(productData);
     })

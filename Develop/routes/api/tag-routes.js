@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Tag.findAll({ include: [Product] })
+  Tag.create(req.body)
     .then((tagData) => {
       res.json(tagData);
     })
@@ -32,6 +32,7 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
+
 
 router.put('/:id', (req, res) => {
   Tag.update(req.body, { where: { id: req.params.id } })
